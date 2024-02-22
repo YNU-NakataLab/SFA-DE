@@ -20,7 +20,7 @@
 ```
 @article{horaguchi2024evolutionary,
   title={{Evolutionary multiobjective optimization assisted by scalarization function approximation for high-dimensional expensive problems}},
-  author={Yuma Horaguchi, Kei Nishihara, Masaya Nakata},
+  author={Horaguchi, Yuma and Nishihara, Kei and Nakata, Masaya},
   journal={Swarm and Evolutionary Computation},
   volume={86},
   pages={101516},
