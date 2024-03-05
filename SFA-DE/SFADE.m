@@ -1,14 +1,14 @@
 classdef SFADE < ALGORITHM
 % <multi/many> <real/integer> <expensive>
-% Scalarization Function Approximation based MOEA/D with DE-based search
+% Scalarization function approximation based differential evolution algorithm
 % F     --- 0.5 --- Scaling facter for inner DE
 % CR    --- 0.9 --- Crossover rate for inner DE
 % omega ---  20 --- The maximum number of generations for DE-based search
 
 %------------------------------- Reference --------------------------------
-% Y.Horaguchi, K.Nishihara and M. Nakata, Evolutionary multiobjective
+% Y. Horaguchi, K. Nishihara, and M. Nakata, Evolutionary multiobjective
 % optimization assisted by scalarization function approximation for
-% high-dimensional expensive problems, Swarm and Evolutionary Computation, 
+% high-dimensional expensive problems, Swarm and Evolutionary Computation,
 % 2024, 86: 101516.
 %------------------------------- Copyright --------------------------------
 % Copyright (c) 2024 BIMK Group. You are free to use the PlatEMO for
@@ -76,19 +76,19 @@ classdef SFADE < ALGORITHM
                     end
                     [~, BestID] = min(PopDEObj);
                     OffDec      = PopDEDec(BestID, :);
-        
+
                     %% Evaluate offspring
                     Offspring = Problem.Evaluation(OffDec);
-        
+
                     %% Update the reference point
                     Z = min(Z, Offspring.obj);
-        
+
                     %% Update population and archive
                     g_old = max(abs(Population(P).objs - repmat(Z, T, 1)) .* W(P, :), [], 2);
                     g_new = max(repmat(abs(Offspring.obj - Z), T, 1) .* W(P, :), [], 2);
                     Population(P(g_old >= g_new)) = Offspring;
                     Arc   = [Arc, Offspring];
-                    
+
                     %% Check termination criteria
                     Algorithm.NotTerminated(Arc);
                 end
