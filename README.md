@@ -26,7 +26,7 @@
   pages={101516},
   month={April},
   year={2024},
-  publisher={Elsevier}
+  publisher={Elsevier},
   doi={10.1016/j.swevo.2024.101516}
 }
 ```
